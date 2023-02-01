@@ -1,2 +1,1 @@
-# ml-project-boilerplate
-Boilerplate for ml project structuring using DVC
+A project for fine-tuning stable-diffusion models.
