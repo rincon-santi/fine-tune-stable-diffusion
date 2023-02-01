@@ -1,6 +1,6 @@
 # 4. Value Proposition
 
-Date: 2022-10-24
+Date: 2023-02-01
 
 ## Status
 
@@ -12,8 +12,8 @@ ML Projects should have a well defined Value Proposition aim.
 
 ## Decision
 
-{Value Proposition}.
+Stable Diffusion fine tuning.
 
 ## Consequences
 
-{Consequences}
+KPIs to measure fine tuning effectiveness.

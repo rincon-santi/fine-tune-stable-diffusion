@@ -55,3 +55,7 @@ Thumbs.db
 # VSCode
 .vscode/
 /trained_model
+\n.aexconfig
+
+.aexconfig
+.history

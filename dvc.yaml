@@ -1,62 +1,21 @@
 stages:
-  get-data:
-    cmd: python src/data/data_recovering.py training
-    deps: 
-    - src/data/data_recovering.py
-    - docs/data_schema.yaml
-    outs:
-    - data/raw
-  clean-data:
-    cmd: python src/data/data_cleaning.py
+  install-requirements:
+    cmd: pip install -r requirements.txt
     deps:
-    - data/raw
-    - src/data/data_cleaning.py
-    outs:
-    - data/interim
-    params:
-    - params/data-params.yaml:
-  generate-features:
-    cmd: python src/features/data_to_features.py
-    deps:
-    - data/interim
-    - src/features/data_to_features.py
-    outs:
-    - data/features
-    - docs/feature_schema.json:
-        cache: false
-    params:
-    - params/data-params.yaml:
+    - requirements.txt
+  initialize-accelerate-env:
+    cmd: accelerate config default
   train-model:
-    cmd: python src/model/train_model.py
+    cmd: accelerate launch src/model/train_model.py --instance_prompt="a photo of sks dog" --class_prompt="a photo of dog"
     deps:
-    - data/features
+    - data/dog
     - src/model/train_model.py
-    - docs/feature_schema.json
     outs:
     - trained_model
     params:
     - params/params.yaml:
-        - metrics
-        - loss
-    - params/data-params.yaml:
-        - label_column
-    - params/train-params.yaml
-  get-validation-data:
-    cmd: python src/data/data_recovering.py validation
-    deps: 
-    - src/data/data_recovering.py
-    outs:
-    - data/validation
-  validate:
-    cmd: python serving/validate.py
-    deps:
-    - serving/validate.py
-    - data/validation
-    - trained_model
-    params:
-    - params/data-params.yaml:
-    metrics:
-    - metrics/validation_results.json:
-        cache: false
+        - model_id
+        - resolution
+    - params/train-params.yaml:
 
 

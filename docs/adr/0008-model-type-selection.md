@@ -1,6 +1,6 @@
 # 8. Model Type Selection
 
-Date: 2022-10-24
+Date: 2023-02-01
 
 ## Status
 
@@ -12,8 +12,8 @@ Model type to train must be selected.
 
 ## Decision
 
-{Model Type}
+Dreambooth strategy over Stable Diffusion model
 
 ## Consequences
 
-{Derived tasks}
+Starting over Hugging Face dreambooth fine tuning script for Stable Diffusion

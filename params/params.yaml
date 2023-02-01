@@ -1,4 +1,5 @@
 # General parameters
-experiment_id: 'dnn_basic_0.0.2'
+model_id: 'CompVis/stable-diffusion-v1-4'
+resolution: 512
 metrics: [{METRICS list}]
 loss: '{LOSS_METRIC}'
