@@ -72,6 +72,29 @@ def start_training(args):
     namespace.seed=None
     namespace.prior_generation_precision=None
     namespace.revision=None
+    namespace.sample_batch_size=4
+    namespace.tokenizer_name=None
+    namespace.center_crop=False
+    namespace.checkpointing_steps=500
+    namespace.resume_from_checkpoint=None
+    namespace.gradient_checkpointing=False
+    namespace.scale_lr=False
+    namespace.lr_num_cycles=1
+    namespace.lr_power=1.0
+    namespace.use_8bit_adam=False
+    namespace.dataloader_num_workers=0
+    namespace.adam_beta1=0.9
+    namespace.adam_beta2=0.999
+    namespace.adam_weight_decay=1e-2
+    namespace.adam_epsilon=1e-08
+    namespace.max_grad_norm=1.0
+    namespace.push_to_hub=False
+    namespace.hub_token=None
+    namespace.hub_model_id=None
+    namespace.allow_tf32=False
+    namespace.local_rank=-1
+    namespace.enable_xformers_memory_efficient_attention=False
+    namespace.set_grads_to_none=False
 
     print("Starting dreambooth script with namespace: {ns}".format(ns=namespace))
     dreambooth_script.main(namespace)
